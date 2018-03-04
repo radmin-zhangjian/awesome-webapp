@@ -235,3 +235,14 @@ async def close_pool():
     global __pool
     __pool.close()
     await __pool.wait_closed()
+
+#销毁连接池
+async def destroy_pool(): 
+    #声明全局变量 
+    global __pool 
+    #如果__pool 不为空 
+    if __pool is not None: 
+        #关闭__pool 
+        __pool.close() 
+        #异步调用__pool.wait_closed(), wait_closed()用于等待直到 close()方法完成 
+        await __pool.wait_closed()
