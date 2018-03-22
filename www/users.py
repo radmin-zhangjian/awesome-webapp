@@ -7,7 +7,7 @@ async def test(loop):
     await orm.create_pool(user='www-data', password='www-data', db='awesome',loop=loop)
     u = User(name='小鱼儿',email='test3@test.com',passwd='test',image='about:blank')
     await u.save()
-    await orm.destroy_pool() #销毁连接池
+    await orm.destroy_pool() # 销毁连接池
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(test(loop))
